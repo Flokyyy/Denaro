@@ -10,7 +10,7 @@ This project is using the NormieWallet API: https://github.com/Flokyyy/NormieWal
 # Installation
 - Getting started with Dippify is easy. All you need to do is invite the bot to your Discord server, and you can instantly start using the wallet to manage your digital assets.
 
--To invite the Denaro bot to your server, simply use this invite here:
-https://discord.com/oauth2/authorize?permissions=347200&scope=bot+applications.commands&client_id=1081996800019398727
+- To invite the Denaro bot to your server, simply use this invite here:
+> https://discord.com/oauth2/authorize?permissions=347200&scope=bot+applications.commands&client_id=1081996800019398727
 
 - Once the bot is on your server, you can start using it right away. Simply type in the commands listed above to manage your wallets, send tips, and withdraw your assets.
