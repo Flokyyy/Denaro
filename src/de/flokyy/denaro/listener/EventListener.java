@@ -16,7 +16,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 public class EventListener extends ListenerAdapter {
 	
 	
-		@Override
+	    @Override
 	    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
 		if(event.getInteraction() == null) {
 			return;
