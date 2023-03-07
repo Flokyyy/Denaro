@@ -20,7 +20,7 @@ import org.json.simple.parser.ParseException;
 public class NormieWalletAdapter {
 	
 	/**
-	 * Checks if a wallet exists for the given user UUID by making a GET request to the NexiLabs API.
+	 * Checks if a wallet exists for the given user UUID by making a GET request to the NormieWallet API.
 	 * @param userUUID the UUID of the user to check for a wallet
 	 * @return true if a wallet exists for the user, false otherwise
 	 */
@@ -53,7 +53,7 @@ public class NormieWalletAdapter {
 	        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 	        
 	        // Create a URL for the API endpoint and open a connection
-	        URL url = new URL("https://nexilabs.io:1111/getWalletOnly?uuid=" + userUUID);
+	        URL url = new URL("https://example.io:1111/getWalletOnly?uuid=" + userUUID);
 	        HttpURLConnection con = (HttpURLConnection) url.openConnection();
 	        con.setRequestMethod("GET");
 
@@ -206,7 +206,7 @@ public class NormieWalletAdapter {
 	        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 	        
 	        // Create URL for sending Solana transaction
-	        URL url = new URL("https://nexilabs.io:1111/send-solana-transaction?receiver=" + receiver + "&uuid=" + userUUID + "&secret=" + secretPass + "&amount=" + amount);
+	        URL url = new URL("https://example.io:1111/send-solana-transaction?receiver=" + receiver + "&uuid=" + userUUID + "&secret=" + secretPass + "&amount=" + amount);
 	        HttpURLConnection con = (HttpURLConnection) url.openConnection();
 	        con.setRequestMethod("GET");
 
@@ -284,7 +284,7 @@ public class NormieWalletAdapter {
 	    	sc.init(null, trustAllCerts, new java.security.SecureRandom());
 	    	HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 	    	
-	        URL url = new URL("https://nexilabs.io:1111/getWallet?secret=" + secretPass + "&uuid=" + userUUID);
+	        URL url = new URL("https://example.io:1111/getWallet?secret=" + secretPass + "&uuid=" + userUUID);
 	        HttpURLConnection con = (HttpURLConnection) url.openConnection();
 	        con.setRequestMethod("GET");
 
