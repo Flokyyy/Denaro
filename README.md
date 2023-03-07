@@ -8,7 +8,7 @@ This project is using the NormieWallet API: https://github.com/Flokyyy/NormieWal
 - In addition to its powerful tip system and ease of use, Denaro also offers a range of other functions that make it easy to manage your digital assets on Discord. With the "/wallet" command, you can quickly view your current wallets and balances, while the "/withdraw" command allows you to easily withdraw SOL from your Denaro wallet and move it to another wallet or exchange.
 
 # Installation
-- Getting started with Dippify is easy. All you need to do is invite the bot to your Discord server.
+- Getting started with Denaro is easy. All you need to do is invite the bot to your Discord server.
 
 - To invite the Denaro bot to your server, simply use this invite here:
 > https://discord.com/oauth2/authorize?permissions=347200&scope=bot+applications.commands&client_id=1081996800019398727
