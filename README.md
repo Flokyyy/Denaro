@@ -1,6 +1,6 @@
 # Denaro
 
-This project is uses: https://github.com/Flokyyy/NormieWallet
+This project is using the NormieWallet API: https://github.com/Flokyyy/NormieWallet
 - Denaro is an innovative and secure Discord crypto wallet that provides users with a convenient and user-friendly way to manage their digital assets. Built using the open-source NormieWallet project, Denaro offers a high level of security for users' funds, with private keys stored on a secure server and encrypted with a user's unique password.
 
 - One of the standout features of Denaro is its powerful tip system, which allows users to tip each other. This feature makes it easy to support your favorite content creators or share your assets with friends, no matter where they are on Discord. With just a few clicks, you can send tips to other users, making it easy to show your appreciation for great content or support your favorite creators.
