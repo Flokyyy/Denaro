@@ -34,18 +34,18 @@ public class Denaro {
 		builder.addEventListeners(new EventListener());
 
 		try {
-			// Builds the JDA instance
-			jda = builder.build();
+		    // Builds the JDA instance
+		    jda = builder.build();
 			
-			try {
-				// Pauses the main thread for 10 seconds
-				Thread.sleep(10000);
-			} catch (InterruptedException e3) {
-				 System.out.println(e3.getMessage());
-			}
+		    try {
+		      // Pauses the main thread for 10 seconds
+		      Thread.sleep(10000);
+		    } catch (InterruptedException e3) {
+		      System.out.println(e3.getMessage());
+		    }
 			
-			// Creates a list of CommandData objects to define the available slash commands for the bot
-			List<CommandData> commandData = new ArrayList<>();
+		    // Creates a list of CommandData objects to define the available slash commands for the bot
+		    List<CommandData> commandData = new ArrayList<>();
 			
 			// Adds a "wallet" command to check the user's Denaro wallet
 		    commandData.add(Commands.slash("wallet", "Check your Denaro wallet"));
