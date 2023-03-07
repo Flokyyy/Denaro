@@ -18,4 +18,5 @@ This project is using the NormieWallet API: https://github.com/Flokyyy/NormieWal
 # Commands
 
 - /create <PIN> - Creates a new encrypted wallet.
+  
 ![Screenshot(1377)](https://user-images.githubusercontent.com/68162827/223459357-d457c7f4-a42f-467d-966f-39007c697f66.png)
