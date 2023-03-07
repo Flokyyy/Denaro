@@ -16,7 +16,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 public class EventListener extends ListenerAdapter {
 	
 	
-	    @Override
+		@Override
 	    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
 		if(event.getInteraction() == null) {
 			return;
@@ -41,18 +41,17 @@ public class EventListener extends ListenerAdapter {
 				
 				if(!NormieWalletAdapter.checkIfWalletExists(event.getUser().getId())) {
 					String wallet = NormieWalletAdapter.getUserWallet("" + pinPassword, event.getUser().getId());
-					EmbedBuilder help31 = new EmbedBuilder();
-				    help31.setTitle("WALLET CREATED");
-					help31.setDescription(":white_check_mark: Great news! Your new Denaro wallet was just created!");
+					EmbedBuilder builder = new EmbedBuilder();
+					builder.setTitle("WALLET CREATED");
+					builder.setDescription(":white_check_mark: Great news! Your new Denaro wallet was just created!");
 				
-					help31.addField(":warning: Reminder", "Your secret pin is: ``" + pinPassword +"`` Make sure to remember this pin, otherwise your funds will be lost.", false);
-					help31.addField("Publickey", "``" + wallet + "``", false);
-					help31.setColor(Color.green);
+					builder.addField(":warning: Reminder", "Your secret pin is: ``" + pinPassword +"`` Make sure to remember this pin, otherwise your funds will be lost.", false);
+					builder.addField("Publickey", "``" + wallet + "``", false);
+					builder.setColor(Color.green);
 			
-					help31.setFooter("Powered by Denaro", "https://cdn.discordapp.com/attachments/1048663249488453693/1082423467472867439/Neues_Projekt_2.png");
+					builder.setFooter("Powered by Denaro", "https://cdn.discordapp.com/attachments/1048663249488453693/1082423467472867439/Neues_Projekt_2.png");
 					
-					hook.sendMessageEmbeds(help31.build()).queue();
-					help31.clear();	
+					hook.sendMessageEmbeds(builder.build()).queue();
 					return;
 			    	
 				}
@@ -62,7 +61,6 @@ public class EventListener extends ListenerAdapter {
          }
 	
 		 if (event.getName().equalsIgnoreCase("wallet")) {
-		      
 	        	ExecutorService executorService = Executors.newSingleThreadExecutor();			
 	        	executorService.execute(new Runnable() {
 				  public void run() {
@@ -90,31 +88,28 @@ public class EventListener extends ListenerAdapter {
 	        	ExecutorService executorService = Executors.newSingleThreadExecutor();
 				executorService.execute(new Runnable() {
 				public void run() {
-				
-					event.deferReply(true).queue(); // Let the user know we received the command before doing anything else
-					InteractionHook hook = event.getHook(); // This is a special webhook that allows you to send messages without having permissions in the channel and also allows ephemeral messages
-					hook.setEphemeral(true);
+				    event.deferReply(true).queue(); // Let the user know we received the command before doing anything else
+				    InteractionHook hook = event.getHook(); // This is a special webhook that allows you to send messages without having permissions in the channel and also allows ephemeral messages
+				    hook.setEphemeral(true);
 				 
 				
 				    OptionMapping receiver = event.getOption("receiver");
-			        OptionMapping amountS = event.getOption("amount");
+			            OptionMapping amountS = event.getOption("amount");
 			        
-			        OptionMapping pin = event.getOption("pin");
-					Integer pinPassword = pin.getAsInt();
+			            OptionMapping pin = event.getOption("pin");
+				    Integer pinPassword = pin.getAsInt();
 			          
-			        String s = amountS.getAsString();
+			            String s = amountS.getAsString();
 			         
-			        User receiverUser = receiver.getAsUser();
+			            User receiverUser = receiver.getAsUser();
 
 					
 					double convertedAmount;
-					try
-					{
+					try {
 					  convertedAmount = Double.parseDouble(s);
 					  
 					}
-					catch(NumberFormatException e)
-					{
+					catch(NumberFormatException e) {
 						hook.sendMessage("Your amount is invaild! Example amount: ``0.01``").queue();
 						return;
 					}
@@ -139,24 +134,20 @@ public class EventListener extends ListenerAdapter {
 					if(NormieWalletAdapter.checkIfWalletExists(receiverUser.getId())) {
 						
 						String wallet = NormieWalletAdapter.getUserWallet("" + pinPassword, receiverUser.getId());
-						System.out.println(wallet);
 						
 						String signature = NormieWalletAdapter.sendTransaction("" + pinPassword, event.getUser().getId(), wallet, amountString);
 						
 						if(!signature.equalsIgnoreCase("ERROR")) {
-							EmbedBuilder help31 = new EmbedBuilder();
-						    help31.setTitle("TRANSACTION SENT");
-							help31.setDescription(":white_check_mark: Your transaction is pending now, but should be confirmed soon.");
-						
-							help31.setColor(Color.green);
-							help31.setFooter("Powered by Denaro", "https://cdn.discordapp.com/attachments/1048663249488453693/1082423467472867439/Neues_Projekt_2.png");
+							EmbedBuilder builder = new EmbedBuilder();
+							builder.setTitle("TRANSACTION SENT");
+							builder.setDescription(":white_check_mark: Your transaction is pending now, but should be confirmed soon.");
+							builder.setColor(Color.green);
+							builder.setFooter("Powered by Denaro", "https://cdn.discordapp.com/attachments/1048663249488453693/1082423467472867439/Neues_Projekt_2.png");
 							
-							hook.sendMessageEmbeds(help31.build()).addActionRow(Button.link("https://solscan.io/tx/" + signature, "Transaction")).queue();
-							help31.clear();	
+							hook.sendMessageEmbeds(builder.build()).addActionRow(Button.link("https://solscan.io/tx/" + signature, "Transaction")).queue();
 							return;
 						}
 						else {
-							
 							hook.sendMessage("Your transaction failed. Please try again!").queue();
 							return;
 							}		  
@@ -208,16 +199,16 @@ public class EventListener extends ListenerAdapter {
 					String amountString = "" + convertedAmount;
 					String signature = NormieWalletAdapter.sendTransaction("" + pinPassword, event.getUser().getId(), receiver, amountString);
 					if(!signature.equalsIgnoreCase("ERROR")) {
-						EmbedBuilder help31 = new EmbedBuilder();
-					    help31.setTitle("TRANSACTION SENT");
-						help31.setDescription(":white_check_mark: Your transaction is pending now, but should be confirmed soon.");
+						EmbedBuilder builder = new EmbedBuilder();
+						builder.setTitle("TRANSACTION SENT");
+						builder.setDescription(":white_check_mark: Your transaction is pending now, but should be confirmed soon.");
 					
-						help31.setColor(Color.green);
+						builder.setColor(Color.green);
 				
-						help31.setFooter("Powered by Denaro", "https://cdn.discordapp.com/attachments/1048663249488453693/1082423467472867439/Neues_Projekt_2.png");
+						builder.setFooter("Powered by Denaro", "https://cdn.discordapp.com/attachments/1048663249488453693/1082423467472867439/Neues_Projekt_2.png");
 						
-						hook.sendMessageEmbeds(help31.build()).addActionRow(Button.link("https://solscan.io/tx/" + signature, "Transaction")).queue();
-						help31.clear();	
+						hook.sendMessageEmbeds(builder.build()).addActionRow(Button.link("https://solscan.io/tx/" + signature, "Transaction")).queue();
+						
 						return;
 					}
 					else {
@@ -227,7 +218,6 @@ public class EventListener extends ListenerAdapter {
 				}
 				});
 				executorService.shutdown();
-
 	        }
 		}
 }
