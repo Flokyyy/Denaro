@@ -22,9 +22,11 @@ This project is using the NormieWallet API: https://github.com/Flokyyy/NormieWal
 ![Screenshot(1377)](https://user-images.githubusercontent.com/68162827/223459357-d457c7f4-a42f-467d-966f-39007c697f66.png)
 
 - /wallet - Check your wallet details
+  
 ![Screenshot (1382)](https://user-images.githubusercontent.com/68162827/224007986-b2786f4c-819c-4418-9b51-054f406be60f.png)
 
 - /tip - Tip any user crypto in seconds
+  
 ![Screenshot (1380)](https://user-images.githubusercontent.com/68162827/224008049-19f2391a-1825-48bc-b679-a64b9983fc29.png)
 
 - /withdraw - Withdraw crypto from your Denaro wallet
